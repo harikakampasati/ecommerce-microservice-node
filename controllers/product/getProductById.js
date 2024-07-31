@@ -3,10 +3,10 @@ const { getResponseObject } = require("../../helpers/supporter");
 const { db } = require("../../models/index");
 
 const getData = async (db, productId) => {
-    const where = { id: productId };
     try {
-        const result = await getSingleRow(db.Products, where);
-        return result;
+        const where = { id: productId };
+        const product = await getSingleRow(db.Products, where);
+        return product;
     } catch (error) {
         console.error("Error in getData:", error); 
         throw error; 

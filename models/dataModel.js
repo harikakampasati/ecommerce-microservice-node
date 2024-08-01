@@ -40,9 +40,28 @@ const getDataBasedOnQuery = async (model, queryData) => {
     }
 };
 
+const updateRow = async (model, values, options) => {
+    try {
+        const result = await model.update(values, options);
+        if (result[0] === 1) { 
+            const updatedRow = await model.findOne({
+                where: options.where,
+                attributes: ['mobileNumber'] 
+            });
+            return updatedRow.dataValues;
+        } else {
+            return null;
+        }
+    } catch (err) {
+        err.error_code = errorCodes.SEQUELIZE_ERROR;
+        throw err;
+    }
+};
+
 
 module.exports = {
     getSingleRow,
     getDataList,
-    getDataBasedOnQuery
+    getDataBasedOnQuery,
+    updateRow
 }

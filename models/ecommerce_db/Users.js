@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('Products', {
+  return sequelize.define('Users', {
     id: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
@@ -11,13 +11,18 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(255),
       allowNull: false
     },
-    description: {
-      type: DataTypes.TEXT,
+    mobileNumber: {
+      type: DataTypes.STRING(15),
+      allowNull: false,
+      unique: "Users_mobileNumber_key"
+    },
+    otp: {
+      type: DataTypes.STRING(6),
       allowNull: true
     },
-    price: {
-      type: DataTypes.DOUBLE,
-      allowNull: false
+    otpExpiry: {
+      type: DataTypes.DATE,
+      allowNull: true
     },
     createdAt: {
       type: DataTypes.DATE,
@@ -29,12 +34,19 @@ module.exports = function(sequelize, DataTypes) {
     }
   }, {
     sequelize,
-    tableName: 'Products',
+    tableName: 'Users',
     schema: 'public',
     timestamps: true,
     indexes: [
       {
-        name: "Products_pkey",
+        name: "Users_mobileNumber_key",
+        unique: true,
+        fields: [
+          { name: "mobileNumber" },
+        ]
+      },
+      {
+        name: "Users_pkey",
         unique: true,
         fields: [
           { name: "id" },

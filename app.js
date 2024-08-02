@@ -5,6 +5,8 @@ dotenv.config();
 const moment = require("moment");
 const { getErrorResponse } = require("./helpers/supporter")
 const v1Router = require("./v1_routes/index");
+const { db } = require("./models/index");
+
 
 const app = express();
 app.use(express.json());
@@ -32,6 +34,17 @@ app.use((err, req, res, next) => {
 
 const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+
+
+// Sync database and start server
+db.sync().then(() => {
+  console.log('Database & tables created!');
+  app.listen(PORT, () => {
+      console.log(`Server is running on port ${PORT}`);
+  });
+}).catch(err => {
+  console.error('Unable to connect to the database:', err);
 });
+// app.listen(PORT, () => {
+//     console.log(`Server is running on port ${PORT}`);
+// });

@@ -6,6 +6,8 @@ const getData = async (db, productId) => {
     try {
         const where = { id: productId };
         const product = await getSingleRow(db.Products, where);
+        console.log("result ====>getCartItem", product.id);
+
         return product;
     } catch (error) {
         console.error("Error in getData:", error); 

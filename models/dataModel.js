@@ -5,7 +5,6 @@ const getSingleRow = async (model, where, order) => {
         const data = await model.findOne({
             where,
             order,
-            raw: true
         });
         return data;
     } catch (err) {
@@ -58,10 +57,40 @@ const updateRow = async (model, values, options) => {
     }
 };
 
+const upsertRow = async (model, data) => {
+    const result = await model.upsert(data)
+    return result[0].dataValues;
+}
+
+const updateData = async (data) => {
+    try {
+        if (data) {
+            return data.save(); 
+        }
+    } catch (error) {
+        console.error("Error in updateData:", error);
+        throw error;
+    }
+}
+
+const deleteRow = async (data) => {
+    console.log("hellllllllllppppp",data)
+    try {
+        if (data) {
+            return data.destroy();
+        }
+    } catch (error) {
+        console.error("Error in deleteRow:", error);
+        throw error;
+    }
+}
 
 module.exports = {
     getSingleRow,
     getDataList,
     getDataBasedOnQuery,
-    updateRow
+    updateRow,
+    upsertRow,
+    updateData,
+    deleteRow
 }

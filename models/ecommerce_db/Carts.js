@@ -7,33 +7,47 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       primaryKey: true
     },
-    name: {
-      type: DataTypes.STRING(255),
+    userId: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      references: {
+        model: 'Users',
+        key: 'id'
+      },
+      unique: "Carts_userId_productId_key"
+    },
+    productId: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      references: {
+        model: 'Products',
+        key: 'id'
+      },
+      unique: "Carts_userId_productId_key"
+    },
+    quantity: {
+      type: DataTypes.INTEGER,
       allowNull: false
-    },
-    description: {
-      type: DataTypes.TEXT,
-      allowNull: true
-    },
-    createdAt: {
-      type: DataTypes.DATE,
-      allowNull: true
-    },
-    updatedAt: {
-      type: DataTypes.DATE,
-      allowNull: true
-    },
+    }
   }, {
     sequelize,
     tableName: 'Carts',
     schema: 'public',
-    timestamps: true,
+    timestamps: false,
     indexes: [
       {
         name: "Carts_pkey",
         unique: true,
         fields: [
           { name: "id" },
+        ]
+      },
+      {
+        name: "Carts_userId_productId_key",
+        unique: true,
+        fields: [
+          { name: "userId" },
+          { name: "productId" },
         ]
       },
     ]

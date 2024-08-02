@@ -1,0 +1,1473 @@
+{
+	"info": {
+		"_postman_id": "0c74d77a-996c-41a0-9665-78434c49e089",
+		"name": "test case for ecommerce",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32575973"
+	},
+	"item": [
+		{
+			"name": "ecommerce-microservice-node",
+			"item": [
+				{
+					"name": "product",
+					"item": [
+						{
+							"name": "get-product-by-id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/ecommerce/v1/product/product-by-id?product_id=1",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"ecommerce",
+										"v1",
+										"product",
+										"product-by-id"
+									],
+									"query": [
+										{
+											"key": "product_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "get-product-by-id",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "localhost:3000/ecommerce/v1/product/get-product-by-id?product_id=1",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"ecommerce",
+												"v1",
+												"product",
+												"get-product-by-id"
+											],
+											"query": [
+												{
+													"key": "product_id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "219"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"db-8yF8rLXoOyu65vpKGt4zgHJU9hQ\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 31 Jul 2024 16:14:30 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"success\",\n    \"message\": \"\",\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"Product 1\",\n        \"description\": \"Description for product 1\",\n        \"price\": 19.99,\n        \"createdAt\": \"2024-07-31T06:56:04.706Z\",\n        \"updatedAt\": \"2024-07-31T06:56:04.706Z\"\n    },\n    \"errorCode\": null\n}"
+								}
+							]
+						},
+						{
+							"name": "products-list",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzIyNTYzODQyLCJleHAiOjE3MjI1Njc0NDJ9.mnVZVDVG7neMKuqUC6p5i--dZBCYhn0TM3a9gn0K3pg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/ecommerce/v1/product/products-list",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"ecommerce",
+										"v1",
+										"product",
+										"products-list"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "Product D",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "products-list without search key",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "localhost:3000/ecommerce/v1/product/products-list",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"ecommerce",
+												"v1",
+												"product",
+												"products-list"
+											],
+											"query": [
+												{
+													"key": "search",
+													"value": "Product D",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "869"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"365-pdIwFhp75EZpHiYnpQuNX4SVLYk\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 02 Aug 2024 03:52:14 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"success\",\n    \"message\": \"\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"Product A\",\n            \"description\": \"Description for Product A\",\n            \"price\": 29.99,\n            \"createdAt\": \"2024-08-01T11:39:08.922Z\",\n            \"updatedAt\": \"2024-08-01T11:39:08.922Z\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Product B\",\n            \"description\": \"Description for Product B\",\n            \"price\": 49.99,\n            \"createdAt\": \"2024-08-01T11:39:08.922Z\",\n            \"updatedAt\": \"2024-08-01T11:39:08.922Z\"\n        },\n        {\n            \"id\": 3,\n            \"name\": \"Product C\",\n            \"description\": \"Description for Product C\",\n            \"price\": 19.99,\n            \"createdAt\": \"2024-08-01T11:39:08.922Z\",\n            \"updatedAt\": \"2024-08-01T11:39:08.922Z\"\n        },\n        {\n            \"id\": 4,\n            \"name\": \"Product D\",\n            \"description\": \"Description for Product D\",\n            \"price\": 99.99,\n            \"createdAt\": \"2024-08-01T11:39:08.922Z\",\n            \"updatedAt\": \"2024-08-01T11:39:08.922Z\"\n        },\n        {\n            \"id\": 5,\n            \"name\": \"Product E\",\n            \"description\": \"Description for Product E\",\n            \"price\": 14.99,\n            \"createdAt\": \"2024-08-01T11:39:08.922Z\",\n            \"updatedAt\": \"2024-08-01T11:39:08.922Z\"\n        }\n    ],\n    \"errorCode\": null\n}"
+								},
+								{
+									"name": "products-list with search key",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "search",
+												"value": "prod A",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "localhost:3000/ecommerce/v1/product/products-list",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"ecommerce",
+												"v1",
+												"product",
+												"products-list"
+											],
+											"query": [
+												{
+													"key": "search",
+													"value": "Product D",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "869"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"365-pdIwFhp75EZpHiYnpQuNX4SVLYk\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 02 Aug 2024 03:55:42 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"success\",\n    \"message\": \"\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"Product A\",\n            \"description\": \"Description for Product A\",\n            \"price\": 29.99,\n            \"createdAt\": \"2024-08-01T11:39:08.922Z\",\n            \"updatedAt\": \"2024-08-01T11:39:08.922Z\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Product B\",\n            \"description\": \"Description for Product B\",\n            \"price\": 49.99,\n            \"createdAt\": \"2024-08-01T11:39:08.922Z\",\n            \"updatedAt\": \"2024-08-01T11:39:08.922Z\"\n        },\n        {\n            \"id\": 3,\n            \"name\": \"Product C\",\n            \"description\": \"Description for Product C\",\n            \"price\": 19.99,\n            \"createdAt\": \"2024-08-01T11:39:08.922Z\",\n            \"updatedAt\": \"2024-08-01T11:39:08.922Z\"\n        },\n        {\n            \"id\": 4,\n            \"name\": \"Product D\",\n            \"description\": \"Description for Product D\",\n            \"price\": 99.99,\n            \"createdAt\": \"2024-08-01T11:39:08.922Z\",\n            \"updatedAt\": \"2024-08-01T11:39:08.922Z\"\n        },\n        {\n            \"id\": 5,\n            \"name\": \"Product E\",\n            \"description\": \"Description for Product E\",\n            \"price\": 14.99,\n            \"createdAt\": \"2024-08-01T11:39:08.922Z\",\n            \"updatedAt\": \"2024-08-01T11:39:08.922Z\"\n        }\n    ],\n    \"errorCode\": null\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "auth",
+					"item": [
+						{
+							"name": "sendOTP",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"mobile_number\": \"778012026\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/ecommerce/v1/auth/send-otp",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"ecommerce",
+										"v1",
+										"auth",
+										"send-otp"
+									],
+									"query": [
+										{
+											"key": "mobile_number",
+											"value": "7780120268",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "sendOTP success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"mobile_number\": \"7780120268\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:3000/ecommerce/v1/auth/send-otp",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"ecommerce",
+												"v1",
+												"auth",
+												"send-otp"
+											],
+											"query": [
+												{
+													"key": "mobile_number",
+													"value": "7780120268",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "235"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"eb-rxbRXukR8oTxOB/Gao5tP/O/H1E\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 02 Aug 2024 03:56:58 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"success\",\n    \"message\": \"OTP sent successfully\",\n    \"data\": {\n        \"otp_message\": \"Your OTP for E-commerce login is 754694 This code is valid for 5 minutes. Do not share this code with anyone.\",\n        \"mobile_number\": \"7780120268\"\n    },\n    \"errorCode\": null\n}"
+								},
+								{
+									"name": "invalid mobile Number",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"mobile_number\": \"77801202\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:3000/ecommerce/v1/auth/send-otp",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"ecommerce",
+												"v1",
+												"auth",
+												"send-otp"
+											],
+											"query": [
+												{
+													"key": "mobile_number",
+													"value": "7780120268",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "96"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"60-3Qxj63g5X/LQZDGl23vgDyiCOkw\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 02 Aug 2024 04:06:37 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"success\",\n    \"message\": \"The given Mobile number doesn't exit\",\n    \"data\": {},\n    \"errorCode\": null\n}"
+								}
+							]
+						},
+						{
+							"name": "verifyOTP",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"mobile_number\": \"7780120268\",\n    \"otp\": \"349442\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/ecommerce/v1/auth/verify-otp",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"ecommerce",
+										"v1",
+										"auth",
+										"verify-otp"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "expired OTP",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"mobile_number\": \"7780120268\",\n    \"otp\": \"349442\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:3000/ecommerce/v1/auth/verify-otp",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"ecommerce",
+												"v1",
+												"auth",
+												"verify-otp"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "82"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"52-anXH5vWmPf4mr+f7tbCm7QM4fn4\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 02 Aug 2024 04:14:18 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"success\",\n    \"message\": \"Invalid or expired OTP\",\n    \"data\": {},\n    \"errorCode\": null\n}"
+								},
+								{
+									"name": "valid OTP",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"mobile_number\": \"7780120268\",\n    \"otp\": \"749209\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:3000/ecommerce/v1/auth/verify-otp",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"ecommerce",
+												"v1",
+												"auth",
+												"verify-otp"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "245"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"f5-uUVAj5BiBcj7boAr8b+U/5W7yx8\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 02 Aug 2024 04:15:17 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"success\",\n    \"message\": \"OTP verified successfully.\",\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxfSwiaWF0IjoxNzIyNTcyMTE3LCJleHAiOjE3MjI1NzU3MTd9.0Lf8U4tuWn839gJxY13L4HeLozObFQn3YLOZyKTkk68\"\n    },\n    \"errorCode\": null\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Carts",
+					"item": [
+						{
+							"name": "add-to-cart",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxfSwiaWF0IjoxNzIyNTczNTI0LCJleHAiOjE3MjI1NzcxMjR9.s5AKbu68HiepE24ilS9W9csqn7B0VRjeBF0GkaeSmMY",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"product_id\": 2,\n    \"quantity\":60\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/ecommerce/v1/carts/add-to-cart",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"ecommerce",
+										"v1",
+										"carts",
+										"add-to-cart"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "success response",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"product_id\": 2,\n    \"quantity\":6\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:3000/ecommerce/v1/carts/add-to-cart",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"ecommerce",
+												"v1",
+												"carts",
+												"add-to-cart"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "129"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"81-bGlXsbdOvW35cpxHWwQyvBt7UWY\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 02 Aug 2024 04:39:01 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"success\",\n    \"message\": \"Cart updated successfully\",\n    \"data\": {\n        \"id\": 2,\n        \"userId\": 1,\n        \"productId\": 2,\n        \"quantity\": 6\n    },\n    \"errorCode\": null\n}"
+								},
+								{
+									"name": "positive quantity only",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"product_id\": 2,\n    \"quantity\":0\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:3000/ecommerce/v1/carts/add-to-cart",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"ecommerce",
+												"v1",
+												"carts",
+												"add-to-cart"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "108"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"6c-IP1qMSGAtwm88VoGaEB7LIL1NTc\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 02 Aug 2024 04:40:32 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"success\",\n    \"message\": \"Please enter a positive quantity for the product\",\n    \"data\": {},\n    \"errorCode\": null\n}"
+								},
+								{
+									"name": "product not found",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"product_id\": 20,\n    \"quantity\":6\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:3000/ecommerce/v1/carts/add-to-cart",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"ecommerce",
+												"v1",
+												"carts",
+												"add-to-cart"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "120"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"78-wjbi0GpXc+L4SMIROwR3WzzSdgs\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 02 Aug 2024 04:42:31 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"success\",\n    \"message\": \"The product you are trying to add to the cart does not exist\",\n    \"data\": {},\n    \"errorCode\": null\n}"
+								},
+								{
+									"name": "limit exceeded",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"product_id\": 2,\n    \"quantity\":60\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:3000/ecommerce/v1/carts/add-to-cart",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"ecommerce",
+												"v1",
+												"carts",
+												"add-to-cart"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "109"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"6d-oaln7lQg9oBvpZrLeYW3vWZeYhA\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 02 Aug 2024 04:43:00 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"success\",\n    \"message\": \"Maximum quantity limit for this product exceeded.\",\n    \"data\": {},\n    \"errorCode\": null\n}"
+								}
+							]
+						},
+						{
+							"name": "update-to-cart",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxfSwiaWF0IjoxNzIyNTczNTI0LCJleHAiOjE3MjI1NzcxMjR9.s5AKbu68HiepE24ilS9W9csqn7B0VRjeBF0GkaeSmMY",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"product_id\": 5,\n    \"quantity\":1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/ecommerce/v1/carts/update-cart",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"ecommerce",
+										"v1",
+										"carts",
+										"update-cart"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "product not in cart",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"product_id\": 5,\n    \"quantity\":1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:3000/ecommerce/v1/carts/update-cart",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"ecommerce",
+												"v1",
+												"carts",
+												"update-cart"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "116"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"74-mPTxgAoO575alBD56uEP27SE2Jw\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 02 Aug 2024 04:45:55 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"success\",\n    \"message\": \"The product you're trying to update is not in your cart.\",\n    \"data\": {},\n    \"errorCode\": null\n}"
+								},
+								{
+									"name": "success response",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"product_id\": 2,\n    \"quantity\":1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:3000/ecommerce/v1/carts/update-cart",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"ecommerce",
+												"v1",
+												"carts",
+												"update-cart"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "107"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"6b-oNM5oiP280+9mZc0qLk9utpBSHg\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 02 Aug 2024 04:47:31 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"success\",\n    \"message\": \"The product was added to your cart successfully\",\n    \"data\": {},\n    \"errorCode\": null\n}"
+								},
+								{
+									"name": "Invalid quantity",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"product_id\": 2,\n    \"quantity\":0\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:3000/ecommerce/v1/carts/update-cart",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"ecommerce",
+												"v1",
+												"carts",
+												"update-cart"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "76"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"4c-t721K/yiI7hCvUxWWQwqXvRlST0\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 02 Aug 2024 04:47:56 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"success\",\n    \"message\": \"Invalid quantity\",\n    \"data\": {},\n    \"errorCode\": null\n}"
+								},
+								{
+									"name": "Product not found",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"product_id\": 20,\n    \"quantity\":9\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:3000/ecommerce/v1/carts/update-cart",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"ecommerce",
+												"v1",
+												"carts",
+												"update-cart"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "77"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"4d-IscVVpH9NbjaoD4YYh5fpLqsXyM\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 02 Aug 2024 04:49:22 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"success\",\n    \"message\": \"Product not found\",\n    \"data\": {},\n    \"errorCode\": null\n}"
+								},
+								{
+									"name": "size exceeded",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"product_id\": 2,\n    \"quantity\":90\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:3000/ecommerce/v1/carts/update-cart",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"ecommerce",
+												"v1",
+												"carts",
+												"update-cart"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "109"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"6d-WZ0BxsaNh3EGPeQMSE6yL2jNFdc\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 02 Aug 2024 04:49:56 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"success\",\n    \"message\": \"Maximum cart size exceeded: max 10 items allowed.\",\n    \"data\": {},\n    \"errorCode\": null\n}"
+								}
+							]
+						},
+						{
+							"name": "delete-cart",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzIyNTY1MDg4LCJleHAiOjE3MjI1Njg2ODh9.YE0RRqayUTGhvKK8uKLg6ynXAcPpZrkZac63XsHatBA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"product_id\": 2\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/ecommerce/v1/carts/delete-cart",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"ecommerce",
+										"v1",
+										"carts",
+										"delete-cart"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "delete product not in cart",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"product_id\": 2\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:3000/ecommerce/v1/carts/delete-cart",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"ecommerce",
+												"v1",
+												"carts",
+												"delete-cart"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "115"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"73-ttWXi2smPx8P++5NIeYApvFc/AQ\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 02 Aug 2024 04:51:51 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"success\",\n    \"message\": \"The product you're trying to delete is not in your cart\",\n    \"data\": {},\n    \"errorCode\": null\n}"
+								},
+								{
+									"name": "success response",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"product_id\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:3000/ecommerce/v1/carts/delete-cart",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"ecommerce",
+												"v1",
+												"carts",
+												"delete-cart"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "110"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"6e-EUysqGiJbyVvIQigvE54TrC6+Ds\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 02 Aug 2024 04:54:19 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"success\",\n    \"message\": \"The product is deleted from your cart successfully\",\n    \"data\": {},\n    \"errorCode\": null\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "hello api",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/ecommerce/hello",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"ecommerce",
+								"hello"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

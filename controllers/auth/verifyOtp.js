@@ -6,6 +6,8 @@ const { getResponseObject } = require("../../helpers/supporter");
 const { db } = require("../../models/index");
 const JWT_SECRET = process.env.JWT_SECRET || 'test@123';
 
+const authorization=require("../../middlewares/validateJwtToken")
+
 const getUserData = async (db, mobileNumber, otp) => {
     try {
         const where = { 
@@ -32,9 +34,10 @@ module.exports.verifyOtp = async (req, res, next) => {
             response.message = "Invalid or expired OTP";
             return res.status(400).json(response);
         }
-        const token = jwt.sign({ id: user.id }, JWT_SECRET, { expiresIn: '1h' });
+        // const token = jwt.sign({ id: user.id }, JWT_SECRET, { expiresIn: '1h' });
+        const token2=await authorization.generatejwttoken({ id: user.id },res);
         response.message = "OTP verified successfully."
-        response.data.token = token;
+        response.data.token = token2;
         return res.status(200).json(response);
     }
     catch(error){
